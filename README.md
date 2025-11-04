@@ -37,7 +37,7 @@ The plugin creates a configuration file at `oxide/config/rFireworksShow.json` wi
   "LootDropItems": {
     "gunpowder": { "min": 3, "max": 5 },
     "cloth": { "min": 3, "max": 5 },
-    "charcoal": { "min": 5, "max": 10 },
+    "charcoal": { "min": 3, "max": 5 },
     "metal.fragments": { "min": 3, "max": 5 }
   },
   "SpawnAtRandomPlayersMapLocation": false,
@@ -59,7 +59,7 @@ The plugin creates a configuration file at `oxide/config/rFireworksShow.json` wi
   "TimeBasedShowEndHour": 7.50,
   "TimedShowIntervalMinSeconds": 15.0,
   "TimedShowIntervalMaxSeconds": 30.0,
-  "TimeBasedShowsDiceRollChancePercent": 50
+  "TimeBasedShowsDiceRollChancePercent": 75
 }
 ```
 
@@ -104,7 +104,7 @@ The plugin creates a configuration file at `oxide/config/rFireworksShow.json` wi
 | `TimeBasedShowEndHour` | 7.50 | End time for shows (07:50 = 7:50 AM) - format: HH.MM (decimal) |
 | `TimedShowIntervalMinSeconds` | 15.0 | Minimum seconds between timed show attempts |
 | `TimedShowIntervalMaxSeconds` | 30.0 | Maximum seconds between timed show attempts |
-| `TimeBasedShowsDiceRollChancePercent` | 50 | Percentage chance (0-100) for time-based show to spawn each roll |
+| `TimeBasedShowsDiceRollChancePercent` | 75 | Percentage chance (0-100) for time-based show to spawn each roll |
 
 ### Available Firework Colors
 
@@ -207,7 +207,7 @@ Console times displayed in brackets (e.g., `[19.50]`) use server game time, matc
   - Each drop randomly picks an item from the list, then rolls quantity between min and max
   - Items spawn 200 feet above the firework location and fall naturally to ground (matches explosion height)
   - Applies to all show types
-  - Default items: Gunpowder (3-5), Cloth (3-5), Charcoal (5-10), Metal Fragments (3-5)
+  - Default items: Gunpowder (3-5), Cloth (3-5), Charcoal (3-5), Metal Fragments (3-5)
 - Firework timing controlled by `EnableStaggeredFireMode`:
   - When enabled (default): Cumulative staggered delays (0.1-1.5 seconds between each) for natural, chaotic appearance
   - When disabled: Independent random delays (0-2 seconds per firework) for unpredictable pattern

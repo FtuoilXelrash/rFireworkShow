@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("rFireworkShow", "Ftuoil Xelrash", "0.1.35")] // <-- change version string as you like
+    [Info("rFireworkShow", "Ftuoil Xelrash", "0.1.40")] // <-- change version string as you like
     [Description("Spawns randomized firework effects at randomized locations (near players or anywhere). Configurable and admin-triggerable.")]
     public class rFireworkShow : RustPlugin
     {
@@ -39,7 +39,7 @@ namespace Oxide.Plugins
             {
                 { "gunpowder", new LootItemConfig { min = 3, max = 5 } },
                 { "cloth", new LootItemConfig { min = 3, max = 5 } },
-                { "charcoal", new LootItemConfig { min = 5, max = 10 } },
+                { "charcoal", new LootItemConfig { min = 3, max = 5 } },
                 { "metal.fragments", new LootItemConfig { min = 3, max = 5 } }
             };
 
@@ -66,7 +66,7 @@ namespace Oxide.Plugins
             public double TimeBasedShowEndHour { get; set; } = 7.50;    // 07:50 (7:50 AM) - shows stop at this time (decimal format)
             public double TimedShowIntervalMinSeconds { get; set; } = 15.0; // minimum seconds between timed show attempts
             public double TimedShowIntervalMaxSeconds { get; set; } = 30.0; // maximum seconds between timed show attempts
-            public int TimeBasedShowsDiceRollChancePercent { get; set; } = 50; // percentage chance (0-100) for time-based show to spawn each roll
+            public int TimeBasedShowsDiceRollChancePercent { get; set; } = 75; // percentage chance (0-100) for time-based show to spawn each roll
         }
 
         protected override void LoadDefaultConfig()
