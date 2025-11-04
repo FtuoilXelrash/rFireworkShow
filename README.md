@@ -46,7 +46,6 @@ The plugin creates a configuration file at `oxide/config/rFireworksShow.json` wi
   "SpreadRadius": 30.0,
   "HeightOffset": 30.0,
   "PlayerSelectionRadius": 500.0,
-  "EffectPrefab": "assets/prefabs/deployable/fireworks/mortarred.prefab",
   "AutomaticShowsEnabled": false,
   "AutomaticShowsIntervalMinSeconds": 3600.0,
   "AutomaticShowsIntervalMaxSeconds": 10800.0,
@@ -82,7 +81,6 @@ The plugin creates a configuration file at `oxide/config/rFireworksShow.json` wi
 | `SpreadRadius` | 30.0 | Radius around center point for firework spread |
 | `HeightOffset` | 30.0 | Height above ground to spawn fireworks |
 | `PlayerSelectionRadius` | 500.0 | Radius around player to center show |
-| `EffectPrefab` | mortarred.prefab | Prefab path (note: each firework randomly selects a color) |
 
 **Automatic Show Settings (independent scheduler):**
 

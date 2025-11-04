@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("rFireworkShow", "Ftuoil Xelrash", "0.1.20")] // <-- change version string as you like
+    [Info("rFireworkShow", "Ftuoil Xelrash", "0.1.22")] // <-- change version string as you like
     [Description("Spawns randomized firework effects at randomized locations (near players or anywhere). Configurable and admin-triggerable.")]
     public class rFireworkShow : RustPlugin
     {
@@ -49,13 +49,6 @@ namespace Oxide.Plugins
             public float SpreadRadius { get; set; } = 30f;         // radius around the center point to randomize individual fireworks
             public float HeightOffset { get; set; } = 30f;         // height above ground to spawn fireworks
             public float PlayerSelectionRadius { get; set; } = 500f; // pick a player to center show near; if no players, random map location
-            public string EffectPrefab { get; set; } = "assets/prefabs/deployable/fireworks/mortarred.prefab";
-            // EffectPrefab should point to an actual firework deployable on your server. Available options:
-            // - assets/prefabs/deployable/fireworks/mortarchampagne.prefab
-            // - assets/prefabs/deployable/fireworks/mortargreen.prefab
-            // - assets/prefabs/deployable/fireworks/mortarblue.prefab
-            // - assets/prefabs/deployable/fireworks/mortarviolet.prefab
-            // - assets/prefabs/deployable/fireworks/mortarred.prefab
 
             // Automatic Show Settings
             public bool AutomaticShowsEnabled { get; set; } = false; // if true, automatic scheduled shows are enabled
