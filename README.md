@@ -365,12 +365,6 @@ The plugin correctly handles overnight time windows (e.g., 19:50-7:50 spans acro
 
 ---
 
-## 📋 Version History
-
-See [CHANGES.md](CHANGES.md) for detailed changelog and version information.
-
----
-
 ## ⚖️ License
 
 This plugin is provided as-is for Rust servers using Oxide/uMod under the MIT License.
