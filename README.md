@@ -228,6 +228,7 @@ Console times displayed in brackets (e.g., `[19.50]`) use server game time, matc
 - Spawn location checking prevents fireworks from spawning in water when `OnlySpawnOnLand` is enabled (uses `WaterLevel.Test()` from Tornado.cs)
 - Monument spawning uses `TerrainMeta.Path.Monuments` for dynamic caching - works on vanilla AND custom maps (no dependency on Monument Finder plugin)
 - When `OnlySpawnAtMonuments` is enabled, the plugin filters to only 29 known safe, above-ground monuments (airfield, harbor, radtown, etc.) to prevent spawning in caves or underground locations
+- Code is optimized with no dead code or unused methods
 
 ## Version History
 

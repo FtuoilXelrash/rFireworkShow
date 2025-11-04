@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("rFireworkShow", "Ftuoil Xelrash", "0.1.30")] // <-- change version string as you like
+    [Info("rFireworkShow", "Ftuoil Xelrash", "0.1.35")] // <-- change version string as you like
     [Description("Spawns randomized firework effects at randomized locations (near players or anywhere). Configurable and admin-triggerable.")]
     public class rFireworkShow : RustPlugin
     {
@@ -438,11 +438,6 @@ namespace Oxide.Plugins
             float centerHeight = TerrainMeta.HeightMap.GetHeight(Vector3.zero);
             position = new Vector3(0f, centerHeight, 0f);
             return true;
-        }
-
-        private float GetSurfaceHeight(Vector3 position)
-        {
-            return WaterLevel.GetWaterOrTerrainSurface(position, true, true, null) + 0.25f;
         }
 
         private void CacheMonuments()
