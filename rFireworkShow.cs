@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("rFireworkShow", "Ftuoil Xelrash", "0.1.22")] // <-- change version string as you like
+    [Info("rFireworkShow", "Ftuoil Xelrash", "0.1.30")] // <-- change version string as you like
     [Description("Spawns randomized firework effects at randomized locations (near players or anywhere). Configurable and admin-triggerable.")]
     public class rFireworkShow : RustPlugin
     {
@@ -37,10 +37,10 @@ namespace Oxide.Plugins
             public double LootDropChance { get; set; } = 50.0; // percentage chance (0-100) for loot to drop from each firework
             public Dictionary<string, LootItemConfig> LootDropItems { get; set; } = new Dictionary<string, LootItemConfig>
             {
-                { "gunpowder", new LootItemConfig { min = 5, max = 15 } },
-                { "cloth", new LootItemConfig { min = 10, max = 20 } },
-                { "charcoal", new LootItemConfig { min = 8, max = 18 } },
-                { "metal.fragments", new LootItemConfig { min = 15, max = 30 } }
+                { "gunpowder", new LootItemConfig { min = 3, max = 5 } },
+                { "cloth", new LootItemConfig { min = 3, max = 5 } },
+                { "charcoal", new LootItemConfig { min = 5, max = 10 } },
+                { "metal.fragments", new LootItemConfig { min = 3, max = 5 } }
             };
 
             public bool SpawnAtRandomPlayersMapLocation { get; set; } = false; // if true, spawn around random players; if false, spawn at random map location
@@ -53,7 +53,7 @@ namespace Oxide.Plugins
             // Automatic Show Settings
             public bool AutomaticShowsEnabled { get; set; } = false; // if true, automatic scheduled shows are enabled
             public double AutomaticShowsIntervalMinSeconds { get; set; } = 3600.0; // minimum seconds between automatic shows (1 hour)
-            public double AutomaticShowsIntervalMaxSeconds { get; set; } = 10800.0; // maximum seconds between automatic shows (3 hours)
+            public double AutomaticShowsIntervalMaxSeconds { get; set; } = 7200.0; // maximum seconds between automatic shows (2 hours)
             public int AutomaticShowsFireworksMin { get; set; } = 1;   // minimum number of fireworks spawned per automatic show
             public int AutomaticShowsFireworksMax { get; set; } = 6;  // maximum number of fireworks spawned per automatic show
             public int AutomaticShowsDiceRollChancePercent { get; set; } = 50; // percentage chance (0-100) for automatic show to spawn

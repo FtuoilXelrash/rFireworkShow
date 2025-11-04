@@ -8,7 +8,7 @@ A Rust server plugin that spawns randomized firework effects at configurable int
   - **Time-Based Shows** - Only spawn between specified hours with dice roll chance (e.g., 7:50 PM to 7:50 AM)
   - **Automatic Shows** - Traditional scheduled shows with configurable intervals
 - **Random Colors**: Each firework randomly selects from 5 different colors (Champagne, Green, Blue, Violet, Red)
-- **Loot Drops**: Optional drops of 10x Gunpowder items from each firework explosion (falls naturally to ground)
+- **Loot Drops**: Optional drops of random loot items from each firework explosion with configurable probability and amounts (falls naturally to ground)
 - **Smart Positioning**: Shows can be centered near players or at random map locations
 - **Multiple Command Modes**: Manual trigger with `/fs`, test behavior with `/fsrand`, toggle modes with `/fstoggle`
 - **Flexible Spawning**: Spawn at your location, specific coordinates, or fully random
@@ -35,10 +35,10 @@ The plugin creates a configuration file at `oxide/config/rFireworksShow.json` wi
   "EnableLootDrops": true,
   "LootDropChance": 50.0,
   "LootDropItems": {
-    "gunpowder": { "min": 5, "max": 15 },
-    "cloth": { "min": 10, "max": 20 },
-    "charcoal": { "min": 8, "max": 18 },
-    "metal.fragments": { "min": 15, "max": 30 }
+    "gunpowder": { "min": 3, "max": 5 },
+    "cloth": { "min": 3, "max": 5 },
+    "charcoal": { "min": 5, "max": 10 },
+    "metal.fragments": { "min": 3, "max": 5 }
   },
   "SpawnAtRandomPlayersMapLocation": false,
   "OnlySpawnOnLand": true,
@@ -48,7 +48,7 @@ The plugin creates a configuration file at `oxide/config/rFireworksShow.json` wi
   "PlayerSelectionRadius": 500.0,
   "AutomaticShowsEnabled": false,
   "AutomaticShowsIntervalMinSeconds": 3600.0,
-  "AutomaticShowsIntervalMaxSeconds": 10800.0,
+  "AutomaticShowsIntervalMaxSeconds": 7200.0,
   "AutomaticShowsFireworksMin": 1,
   "AutomaticShowsFireworksMax": 6,
   "AutomaticShowsDiceRollChancePercent": 50,
@@ -88,7 +88,7 @@ The plugin creates a configuration file at `oxide/config/rFireworksShow.json` wi
 |--------|---------|-------------|
 | `AutomaticShowsEnabled` | false | Enable traditional automatic scheduled shows |
 | `AutomaticShowsIntervalMinSeconds` | 3600.0 | Minimum seconds between automatic shows (1 hour) |
-| `AutomaticShowsIntervalMaxSeconds` | 10800.0 | Maximum seconds between automatic shows (3 hours) |
+| `AutomaticShowsIntervalMaxSeconds` | 7200.0 | Maximum seconds between automatic shows (2 hours) |
 | `AutomaticShowsFireworksMin` | 1 | Minimum fireworks spawned per automatic show |
 | `AutomaticShowsFireworksMax` | 6 | Maximum fireworks spawned per automatic show |
 | `AutomaticShowsDiceRollChancePercent` | 50 | Percentage chance (0-100) for automatic show to spawn each attempt |
@@ -207,7 +207,7 @@ Console times displayed in brackets (e.g., `[19.50]`) use server game time, matc
   - Each drop randomly picks an item from the list, then rolls quantity between min and max
   - Items spawn 200 feet above the firework location and fall naturally to ground (matches explosion height)
   - Applies to all show types
-  - Default items: Gunpowder (5-15), Cloth (10-20), Charcoal (8-18), Metal Fragments (15-30)
+  - Default items: Gunpowder (3-5), Cloth (3-5), Charcoal (5-10), Metal Fragments (3-5)
 - Firework timing controlled by `EnableStaggeredFireMode`:
   - When enabled (default): Cumulative staggered delays (0.1-1.5 seconds between each) for natural, chaotic appearance
   - When disabled: Independent random delays (0-2 seconds per firework) for unpredictable pattern
