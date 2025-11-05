@@ -366,7 +366,6 @@ The plugin correctly handles overnight time windows (e.g., 19:50-7:50 spans acro
 - **Map Markers**: Green circular markers (0.5 unit radius) appear on player maps during shows and automatically disappear after completion
 - **Water Safety**: The land detection uses `WaterLevel.Test()` method from Rust's built-in APIs - not invasive, just height checks
 - **Monument Data**: Uses `TerrainMeta.Path.Monuments` for dynamic caching - works on vanilla AND custom maps with no external dependencies
-- **Code Quality**: All dead code has been removed, zero unused methods or configuration options
 - **Console Reload**: Configuration changes take effect immediately on reload without requiring server restart
 - **Performance**: Both schedulers run independently with minimal overhead
 

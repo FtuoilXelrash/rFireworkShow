@@ -447,9 +447,6 @@ built-in APIs - not invasive, just height checks
 Monument Data: Uses TerrainMeta.Path.Monuments for dynamic caching - works on
 vanilla AND custom maps with no external dependencies
 
-Code Quality: All dead code has been removed, zero unused methods or
-configuration options
-
 Console Reload: Configuration changes take effect immediately on reload
 without requiring server restart
 
