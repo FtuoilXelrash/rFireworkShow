@@ -48,7 +48,7 @@ ADVANCED OPTIONS
 DOWNLOAD LATEST RELEASE
 -----------------------
 Get the latest version from GitHub Releases:
-https://github.com/FtuoilXelrash/rFireworksShow/releases
+https://github.com/FtuoilXelrash/rFireworkShow/releases
 
 INSTALLATION STEPS
 ------------------
@@ -475,10 +475,10 @@ MIT License.
 ================================================================================
 
 Get Latest Release - Download from GitHub Releases
-  https://github.com/FtuoilXelrash/rFireworksShow/releases
+  https://github.com/FtuoilXelrash/rFireworkShow/releases
 
 Report Issues - GitHub Issues
-  https://github.com/FtuoilXelrash/rFireworksShow/issues
+  https://github.com/FtuoilXelrash/rFireworkShow/issues
 
 Suggestions & PRs - Open a GitHub Discussion or Pull Request
 

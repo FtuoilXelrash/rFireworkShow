@@ -35,7 +35,7 @@
 
 ### Download Latest Release
 Get the latest version from GitHub Releases:
-**[Download rFireworkShow.cs](https://github.com/FtuoilXelrash/rFireworksShow/releases)**
+**[Download rFireworkShow.cs](https://github.com/FtuoilXelrash/rFireworkShow/releases)**
 
 ### Installation Steps
 1. **Download** `rFireworkShow.cs` from the latest release
@@ -386,8 +386,8 @@ This plugin is provided as-is for Rust servers using Oxide/uMod under the MIT Li
 
 ## 💬 Support & Contributing
 
-- **Get Latest Release** - [Download from GitHub Releases](https://github.com/FtuoilXelrash/rFireworksShow/releases)
-- **Report Issues** - [GitHub Issues](https://github.com/FtuoilXelrash/rFireworksShow/issues)
+- **Get Latest Release** - [Download from GitHub Releases](https://github.com/FtuoilXelrash/rFireworkShow/releases)
+- **Report Issues** - [GitHub Issues](https://github.com/FtuoilXelrash/rFireworkShow/issues)
 - **Suggestions & PRs** - Open a GitHub Discussion or Pull Request
 - **Found a bug?** - Please provide console output and reproduction steps
 
