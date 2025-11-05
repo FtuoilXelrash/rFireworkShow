@@ -466,12 +466,15 @@ MIT License.
                       SUPPORT & CONTRIBUTING
 ================================================================================
 
-Issues? Report them on GitHub Issues
+Get Latest Release - Download from GitHub Releases
+  https://github.com/FtuoilXelrash/rFireworksShow/releases
+
+Report Issues - GitHub Issues
   https://github.com/FtuoilXelrash/rFireworksShow/issues
 
-Suggestions? Open a GitHub Discussion or Pull Request
+Suggestions & PRs - Open a GitHub Discussion or Pull Request
 
-Found a bug? Please provide console output and reproduction steps
+Found a bug? - Please provide console output and reproduction steps
 
 ================================================================================
 
