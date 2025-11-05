@@ -1,14 +1,14 @@
 ================================================================================
-                          rFireworksShow
+                     rFireworksShow - Rust Game Server Plugin
 ================================================================================
 
-Game: Rust
+Game: Rust Game Server
 Framework: Umod
-Version: 1.0.0
+Version: 1.0.4
 License: MIT
 
-Advanced firework show system with customizable scheduling, loot drops, and
-intelligent spawn placement.
+Advanced firework show system plugin for Rust servers - Customizable
+scheduling, loot drops, and intelligent spawn placement.
 
 ================================================================================
                              FEATURES
@@ -81,6 +81,7 @@ oxide/config/rFireworksShow.json. Below is the complete default config:
   },
   "SpawnAtRandomPlayersMapLocation": false,
   "OnlySpawnOnLand": true,
+  "AllowWaterMonuments": true,
   "OnlySpawnAtMonuments": false,
   "SpreadRadius": 30.0,
   "HeightOffset": 30.0,
@@ -127,6 +128,9 @@ SpawnAtRandomPlayersMapLocation (false)
 
 OnlySpawnOnLand (true)
   Prevent spawning in water bodies
+
+AllowWaterMonuments (true)
+  Allow water monuments (oil rigs, fishing villages) to spawn - 50% chance in random mode
 
 OnlySpawnAtMonuments (false)
   Only spawn at whitelisted monuments
@@ -403,6 +407,13 @@ Special: arctic_research_base_a, desert_military_base_a/b/c/d,
 
 Note: These monuments were selected to prevent underground spawns
 (excludes caves, bunkers, power substations, etc.)
+
+Water Monuments: The following monuments are on water and require AllowWaterMonuments
+to be true (default: true) to spawn:
+- fishing_village_a, fishing_village_b, fishing_village_c (coastal villages)
+- oilrig_1, oilrig_2 (oil platforms)
+- During random spawning (/fsrand), water monuments have a 50% chance to be selected
+  when enabled
 
 
 PLAYER PROXIMITY SPAWNING

@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("rFireworkShow", "Ftuoil Xelrash", "1.0.0")] // <-- change version string as you like
+    [Info("rFireworkShow", "Ftuoil Xelrash", "1.0.4")] // <-- change version string as you like
     [Description("Spawns randomized firework effects at randomized locations (near players or anywhere). Configurable and admin-triggerable.")]
     public class rFireworkShow : RustPlugin
     {
@@ -45,6 +45,7 @@ namespace Oxide.Plugins
 
             public bool SpawnAtRandomPlayersMapLocation { get; set; } = false; // if true, spawn around random players; if false, spawn at random map location
             public bool OnlySpawnOnLand { get; set; } = true; // if true, never spawn in water; if false, can spawn anywhere
+            public bool AllowWaterMonuments { get; set; } = true; // if true, water monuments (oil rigs) can spawn even when OnlySpawnOnLand is enabled
             public bool OnlySpawnAtMonuments { get; set; } = false; // if true, only spawn at map monuments; if false, spawn at random locations
             public float SpreadRadius { get; set; } = 30f;         // radius around the center point to randomize individual fireworks
             public float HeightOffset { get; set; } = 30f;         // height above ground to spawn fireworks
@@ -365,14 +366,27 @@ namespace Oxide.Plugins
                     Vector3 monumentPos = monument.transform.position;
                     monumentPos.y += config.HeightOffset;
 
-                    // Still respect OnlySpawnOnLand check
-                    if (config.OnlySpawnOnLand)
+                    // Check if this is a water monument
+                    string monumentShortName = monument.name;
+                    if (monumentShortName.Contains("/"))
+                    {
+                        monumentShortName = monumentShortName.Substring(monumentShortName.LastIndexOf("/") + 1);
+                    }
+                    if (monumentShortName.EndsWith(".prefab"))
+                    {
+                        monumentShortName = monumentShortName.Substring(0, monumentShortName.Length - 7);
+                    }
+
+                    bool isWaterMonument = waterMonuments.Contains(monumentShortName);
+
+                    // Still respect OnlySpawnOnLand check - but skip it for water monuments if AllowWaterMonuments is true
+                    if (config.OnlySpawnOnLand && (!isWaterMonument || !config.AllowWaterMonuments))
                     {
                         Vector3 probePoint = new Vector3(monumentPos.x, monumentPos.y + 0.25f, monumentPos.z);
                         bool isWater = WaterLevel.Test(probePoint, true, true, null);
                         if (isWater)
                         {
-                            // Monument is in water, skip and fall through to random
+                            // Monument is in water and either not a water monument or water monuments disabled
                             monument = null;
                         }
                     }
@@ -396,6 +410,20 @@ namespace Oxide.Plugins
             }
 
             // If OnlySpawnAtMonuments is disabled, or as fallback
+            // Consider water monuments if AllowWaterMonuments is enabled
+            if (config.AllowWaterMonuments)
+            {
+                // 50% chance to spawn at a water monument (if available)
+                MonumentInfo waterMonument = GetRandomWaterMonument();
+                if (waterMonument != null && UnityEngine.Random.value < 0.5f)
+                {
+                    Vector3 waterMonumentPos = waterMonument.transform.position;
+                    waterMonumentPos.y += config.HeightOffset;
+                    monumentName = GetMonumentName(waterMonument);
+                    return waterMonumentPos;
+                }
+            }
+
             // If OnlySpawnOnLand is enabled, try to find a valid land location
             if (config.OnlySpawnOnLand)
             {
@@ -439,6 +467,16 @@ namespace Oxide.Plugins
             position = new Vector3(0f, centerHeight, 0f);
             return true;
         }
+
+        // Water monuments that can spawn even when OnlySpawnOnLand is enabled
+        private readonly HashSet<string> waterMonuments = new HashSet<string>
+        {
+            "fishing_village_a",
+            "fishing_village_b",
+            "fishing_village_c",
+            "oilrig_1",
+            "oilrig_2"
+        };
 
         private void CacheMonuments()
         {
@@ -486,7 +524,7 @@ namespace Oxide.Plugins
 
             foreach (var monument in TerrainMeta.Path.Monuments)
             {
-                if (monument != null && monument.transform.position.y > 0)
+                if (monument != null)
                 {
                     // Extract short name from prefab path (e.g., "airfield_1" from "assets/bundled/prefabs/autospawn/monument/large/airfield_1.prefab")
                     string shortName = monument.name;
@@ -506,7 +544,12 @@ namespace Oxide.Plugins
                     // Check if monument name is in whitelist
                     if (!string.IsNullOrEmpty(shortName) && allowedMonuments.Contains(shortName))
                     {
-                        cachedMonuments.Add(monument);
+                        // Water monuments can have low Y positions, so skip the Y > 0 check for them
+                        bool isWaterMonument = waterMonuments.Contains(shortName);
+                        if (isWaterMonument || monument.transform.position.y > 0)
+                        {
+                            cachedMonuments.Add(monument);
+                        }
                     }
                 }
             }
@@ -522,6 +565,45 @@ namespace Oxide.Plugins
             }
 
             return cachedMonuments[UnityEngine.Random.Range(0, cachedMonuments.Count)];
+        }
+
+        private MonumentInfo GetRandomWaterMonument()
+        {
+            if (cachedMonuments == null || cachedMonuments.Count == 0)
+            {
+                return null;
+            }
+
+            // Filter to only water monuments
+            List<MonumentInfo> waterMonumentsList = new List<MonumentInfo>();
+            foreach (var monument in cachedMonuments)
+            {
+                if (monument != null)
+                {
+                    // Extract short name from monument.name
+                    string shortName = monument.name;
+                    if (shortName.Contains("/"))
+                    {
+                        shortName = shortName.Substring(shortName.LastIndexOf("/") + 1);
+                    }
+                    if (shortName.EndsWith(".prefab"))
+                    {
+                        shortName = shortName.Substring(0, shortName.Length - 7);
+                    }
+
+                    if (waterMonuments.Contains(shortName))
+                    {
+                        waterMonumentsList.Add(monument);
+                    }
+                }
+            }
+
+            if (waterMonumentsList.Count == 0)
+            {
+                return null;
+            }
+
+            return waterMonumentsList[UnityEngine.Random.Range(0, waterMonumentsList.Count)];
         }
 
         private string GetMonumentName(MonumentInfo monument)
@@ -849,14 +931,12 @@ namespace Oxide.Plugins
                 // Auto mode: use the same logic as scheduled shows
                 center = GetRandomCenter(out monumentName);
                 showType = "Random Show";
-                SendReply(player, $"rFireworkShow: launched random show at {center}.");
             }
             else if (args.Length >= 1 && args[0].ToLower() == "local")
             {
                 // Local mode: at player's feet
                 center = player.transform.position;
                 showType = "Local Show";
-                SendReply(player, $"rFireworkShow: launched local show at {center}.");
             }
             else if (args.Length >= 3)
             {
@@ -866,7 +946,6 @@ namespace Oxide.Plugins
                 {
                     center = new Vector3(x, y, z);
                     showType = "Random Show";
-                    SendReply(player, $"rFireworkShow: launched show at {center}.");
                 }
                 else
                 {
@@ -882,6 +961,13 @@ namespace Oxide.Plugins
 
             int count = UnityEngine.Random.Range(config.TimeBasedShowsFireworksMin, config.TimeBasedShowsFireworksMax + 1);
             RunFireworkShow(center, count, showType, monumentName);
+
+            // Send admin the same message format as console output
+            string gridRef = GetGridReference(center);
+            string locationInfo = !string.IsNullOrEmpty(monumentName)
+                ? $"Monument({monumentName})"
+                : $"Location{center}";
+            SendReply(player, $"{showType}: Grid({gridRef}) - {locationInfo} with {count} fireworks.");
         }
 
         [ChatCommand("fstoggle")]

@@ -1,11 +1,11 @@
 # 🎆 rFireworksShow
 
-[![Game](https://img.shields.io/badge/Game-Rust-orange.svg)](https://rust.facepunch.com/)
+[![Game](https://img.shields.io/badge/Game-Rust_Server-orange.svg)](https://rust.facepunch.com/)
 [![Framework](https://img.shields.io/badge/Framework-Umod-blue.svg)](https://umod.org/)
-[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
+[![Version](https://img.shields.io/badge/Version-1.0.4-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Advanced firework show system with customizable scheduling, loot drops, and intelligent spawn placement.**
+**Advanced firework show system plugin for Rust game servers - Customizable scheduling, loot drops, and intelligent spawn placement.**
 
 ---
 
@@ -66,6 +66,7 @@ The plugin auto-generates a configuration file at `oxide/config/rFireworksShow.j
   },
   "SpawnAtRandomPlayersMapLocation": false,
   "OnlySpawnOnLand": true,
+  "AllowWaterMonuments": true,
   "OnlySpawnAtMonuments": false,
   "SpreadRadius": 30.0,
   "HeightOffset": 30.0,
@@ -99,6 +100,7 @@ The plugin auto-generates a configuration file at `oxide/config/rFireworksShow.j
 | `LootDropItems` | See JSON | Dictionary of item names with min/max quantities |
 | `SpawnAtRandomPlayersMapLocation` | false | Spawn near random players (true) or fully random map (false) |
 | `OnlySpawnOnLand` | true | Prevent spawning in water bodies |
+| `AllowWaterMonuments` | true | Allow water monuments (oil rigs, fishing villages) to spawn - 50% chance in random mode |
 | `OnlySpawnAtMonuments` | false | Only spawn at whitelisted monuments |
 | `SpreadRadius` | 30.0 | Radius around center point for firework spread |
 | `HeightOffset` | 30.0 | Height above ground to spawn fireworks |
@@ -333,6 +335,11 @@ TimeBasedShow[19.50]: Monument(Harbor) - Grid(M8) with 12 fireworks.
 - Special: arctic_research_base_a, desert_military_base_a/b/c/d, ferry_terminal_1
 
 **Note:** These monuments were selected to prevent underground spawns (excludes caves, bunkers, power substations, etc.)
+
+**Water Monuments:** The following monuments are on water and require `AllowWaterMonuments: true` to spawn (default: true):
+- `fishing_village_a`, `fishing_village_b`, `fishing_village_c` (coastal villages)
+- `oilrig_1`, `oilrig_2` (oil platforms)
+- During random spawning (`/fsrand`), water monuments have a 50% chance to be selected when enabled
 
 ### 👥 Player Proximity Spawning
 
