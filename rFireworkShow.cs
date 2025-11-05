@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("rFireworkShow", "Ftuoil Xelrash", "0.1.40")] // <-- change version string as you like
+    [Info("rFireworkShow", "Ftuoil Xelrash", "1.0.0")] // <-- change version string as you like
     [Description("Spawns randomized firework effects at randomized locations (near players or anywhere). Configurable and admin-triggerable.")]
     public class rFireworkShow : RustPlugin
     {
@@ -31,7 +31,7 @@ namespace Oxide.Plugins
             public bool OnlyWhenPlayersOnline { get; set; } = true; // if true, only run automatic shows when at least one player is online
             public bool EnableMapMarkers { get; set; } = true; // if true, display green map markers at firework show locations
             public bool EnableStaggeredFireMode { get; set; } = true; // if true, fireworks fire with cumulative staggered delays for natural rhythm; if false, independent random delays
-            public bool EnableLootDrops { get; set; } = true; // if true, drop loot items when fireworks explode
+            public bool EnableLootDrops { get; set; } = false; // if true, drop loot items when fireworks explode
 
             // Loot Drop Settings
             public double LootDropChance { get; set; } = 50.0; // percentage chance (0-100) for loot to drop from each firework
@@ -60,7 +60,7 @@ namespace Oxide.Plugins
 
             // Time-based Show Settings
             public bool TimeBasedShowsEnabled { get; set; } = true; // if true, shows only happen during specified hours
-            public int TimeBasedShowsFireworksMin { get; set; } = 3;   // minimum number of fireworks spawned per time-based show
+            public int TimeBasedShowsFireworksMin { get; set; } = 6;   // minimum number of fireworks spawned per time-based show
             public int TimeBasedShowsFireworksMax { get; set; } = 60;  // maximum number of fireworks spawned per time-based show
             public double TimeBasedStartHour { get; set; } = 19.50; // 19:50 (7:50 PM) - shows start at this time (decimal format)
             public double TimeBasedShowEndHour { get; set; } = 7.50;    // 07:50 (7:50 AM) - shows stop at this time (decimal format)

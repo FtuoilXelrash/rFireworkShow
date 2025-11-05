@@ -2,7 +2,7 @@
 
 [![Game](https://img.shields.io/badge/Game-Rust-orange.svg)](https://rust.facepunch.com/)
 [![Framework](https://img.shields.io/badge/Framework-Umod-blue.svg)](https://umod.org/)
-[![Version](https://img.shields.io/badge/Version-0.1.40-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
+[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Advanced firework show system with customizable scheduling, loot drops, and intelligent spawn placement.**
@@ -38,6 +38,8 @@
 3. **Reload** the plugin or restart your server
 4. **Configure** settings in the generated `oxide/config/rFireworksShow.json`
 
+**Note:** This plugin has no external dependencies. Monument data uses native Rust APIs (TerrainMeta.Path.Monuments) and works on vanilla and custom maps.
+
 ---
 
 ## ⚙️ Configuration
@@ -49,7 +51,7 @@ The plugin auto-generates a configuration file at `oxide/config/rFireworksShow.j
   "OnlyWhenPlayersOnline": true,
   "EnableMapMarkers": true,
   "EnableStaggeredFireMode": true,
-  "EnableLootDrops": true,
+  "EnableLootDrops": false,
   "LootDropChance": 50.0,
   "LootDropItems": {
     "gunpowder": { "min": 3, "max": 5 },
@@ -70,7 +72,7 @@ The plugin auto-generates a configuration file at `oxide/config/rFireworksShow.j
   "AutomaticShowsFireworksMax": 6,
   "AutomaticShowsDiceRollChancePercent": 50,
   "TimeBasedShowsEnabled": true,
-  "TimeBasedShowsFireworksMin": 3,
+  "TimeBasedShowsFireworksMin": 6,
   "TimeBasedShowsFireworksMax": 60,
   "TimeBasedStartHour": 19.50,
   "TimeBasedShowEndHour": 7.50,
@@ -87,7 +89,7 @@ The plugin auto-generates a configuration file at `oxide/config/rFireworksShow.j
 | `OnlyWhenPlayersOnline` | true | Only run automatic shows when at least one player is online |
 | `EnableMapMarkers` | true | Display green map markers at firework show locations |
 | `EnableStaggeredFireMode` | true | Cumulative staggered delays (natural) vs independent random delays (chaotic) |
-| `EnableLootDrops` | true | Drop loot items when fireworks explode |
+| `EnableLootDrops` | false | Drop loot items when fireworks explode |
 | `LootDropChance` | 50.0 | Percentage chance (0-100) for loot per firework |
 | `LootDropItems` | See JSON | Dictionary of item names with min/max quantities |
 | `SpawnAtRandomPlayersMapLocation` | false | Spawn near random players (true) or fully random map (false) |
@@ -113,7 +115,7 @@ The plugin auto-generates a configuration file at `oxide/config/rFireworksShow.j
 | Option | Default | Description |
 |--------|---------|-------------|
 | `TimeBasedShowsEnabled` | true | Enable time-based shows |
-| `TimeBasedShowsFireworksMin` | 3 | Minimum fireworks per show |
+| `TimeBasedShowsFireworksMin` | 6 | Minimum fireworks per show |
 | `TimeBasedShowsFireworksMax` | 60 | Maximum fireworks per show |
 | `TimeBasedStartHour` | 19.50 | Start time (19:50 = 7:50 PM) - format: HH.MM |
 | `TimeBasedShowEndHour` | 7.50 | End time (07:50 = 7:50 AM) - format: HH.MM |

@@ -4,7 +4,7 @@
 
 Game: Rust
 Framework: Umod
-Version: 0.1.40
+Version: 1.0.0
 License: MIT
 
 Advanced firework show system with customizable scheduling, loot drops, and
@@ -50,6 +50,9 @@ ADVANCED OPTIONS
 3. Reload the plugin or restart your server
 4. Configure settings in the generated oxide/config/rFireworksShow.json
 
+NOTE: This plugin has no external dependencies. Monument data uses native Rust
+APIs (TerrainMeta.Path.Monuments) and works on vanilla and custom maps.
+
 ================================================================================
                          CONFIGURATION
 ================================================================================
@@ -61,7 +64,7 @@ oxide/config/rFireworksShow.json. Below is the complete default config:
   "OnlyWhenPlayersOnline": true,
   "EnableMapMarkers": true,
   "EnableStaggeredFireMode": true,
-  "EnableLootDrops": true,
+  "EnableLootDrops": false,
   "LootDropChance": 50.0,
   "LootDropItems": {
     "gunpowder": { "min": 3, "max": 5 },
@@ -82,7 +85,7 @@ oxide/config/rFireworksShow.json. Below is the complete default config:
   "AutomaticShowsFireworksMax": 6,
   "AutomaticShowsDiceRollChancePercent": 50,
   "TimeBasedShowsEnabled": true,
-  "TimeBasedShowsFireworksMin": 3,
+  "TimeBasedShowsFireworksMin": 6,
   "TimeBasedShowsFireworksMax": 60,
   "TimeBasedStartHour": 19.50,
   "TimeBasedShowEndHour": 7.50,
@@ -103,7 +106,7 @@ EnableMapMarkers (true)
 EnableStaggeredFireMode (true)
   Cumulative staggered delays (natural) vs independent random delays (chaotic)
 
-EnableLootDrops (true)
+EnableLootDrops (false)
   Drop loot items when fireworks explode
 
 LootDropChance (50.0)
