@@ -33,7 +33,12 @@
 
 ## 📦 Installation
 
-1. **Download** `rFireworkShow.cs` from the [GitHub repository](https://github.com/FtuoilXelrash/rFireworksShow)
+### Download Latest Release
+Get the latest version from GitHub Releases:
+**[Download rFireworkShow.cs](https://github.com/FtuoilXelrash/rFireworksShow/releases)**
+
+### Installation Steps
+1. **Download** `rFireworkShow.cs` from the latest release
 2. **Place** in your Rust server's `oxide/plugins/` directory
 3. **Reload** the plugin or restart your server
 4. **Configure** settings in the generated `oxide/config/rFireworksShow.json`
@@ -375,9 +380,10 @@ This plugin is provided as-is for Rust servers using Oxide/uMod under the MIT Li
 
 ## 💬 Support & Contributing
 
-- **Issues?** Report them on [GitHub Issues](https://github.com/FtuoilXelrash/rFireworksShow/issues)
-- **Suggestions?** Open a GitHub Discussion or Pull Request
-- **Found a bug?** Please provide console output and reproduction steps
+- **Get Latest Release** - [Download from GitHub Releases](https://github.com/FtuoilXelrash/rFireworksShow/releases)
+- **Report Issues** - [GitHub Issues](https://github.com/FtuoilXelrash/rFireworksShow/issues)
+- **Suggestions & PRs** - Open a GitHub Discussion or Pull Request
+- **Found a bug?** - Please provide console output and reproduction steps
 
 ---
 

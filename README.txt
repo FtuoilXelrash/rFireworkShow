@@ -45,7 +45,14 @@ ADVANCED OPTIONS
                           INSTALLATION
 ================================================================================
 
-1. Download rFireworkShow.cs from the GitHub repository
+DOWNLOAD LATEST RELEASE
+-----------------------
+Get the latest version from GitHub Releases:
+https://github.com/FtuoilXelrash/rFireworksShow/releases
+
+INSTALLATION STEPS
+------------------
+1. Download rFireworkShow.cs from the latest release
 2. Place in your Rust server's oxide/plugins/ directory
 3. Reload the plugin or restart your server
 4. Configure settings in the generated oxide/config/rFireworksShow.json
