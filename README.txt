@@ -480,6 +480,9 @@ Get Latest Release - Download from GitHub Releases
 Report Issues - GitHub Issues
   https://github.com/FtuoilXelrash/rFireworkShow/issues
 
+Discord Support - Join our community for help and discussions
+  https://discord.gg/G8mfZH2TMp
+
 Suggestions & PRs - Open a GitHub Discussion or Pull Request
 
 Found a bug? - Please provide console output and reproduction steps

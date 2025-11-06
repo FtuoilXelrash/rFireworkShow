@@ -388,6 +388,7 @@ This plugin is provided as-is for Rust servers using Oxide/uMod under the MIT Li
 
 - **Get Latest Release** - [Download from GitHub Releases](https://github.com/FtuoilXelrash/rFireworkShow/releases)
 - **Report Issues** - [GitHub Issues](https://github.com/FtuoilXelrash/rFireworkShow/issues)
+- 💬 **Discord Support** - [Join our community for help and discussions](https://discord.gg/G8mfZH2TMp)
 - **Suggestions & PRs** - Open a GitHub Discussion or Pull Request
 - **Found a bug?** - Please provide console output and reproduction steps
 
