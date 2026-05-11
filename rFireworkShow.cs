@@ -5,13 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using Oxide.Core;
 using Oxide.Core.Plugins;
 using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("Firework Show", "Ftuoil Xelrash", "1.0.5")]
+    [Info("Firework Show", "Ftuoil Xelrash", "1.0.6")]
     [Description("Spawns randomized firework effects at randomized locations (near players or anywhere). Configurable and admin-triggerable.")]
     public class rFireworkShow : RustPlugin
     {
@@ -28,7 +29,8 @@ namespace Oxide.Plugins
         private class PluginConfig
         {
             // Display & Effect Settings
-            public bool OnlyWhenPlayersOnline { get; set; } = true; // if true, only run automatic shows when at least one player is online
+            [JsonProperty("Minimum online players required to spawn a show (0 = disabled)")]
+            public int MinimumPlayersToSpawn { get; set; } = 0;
             public bool EnableMapMarkers { get; set; } = true; // if true, display green map markers at firework show locations
             public bool EnableStaggeredFireMode { get; set; } = true; // if true, fireworks fire with cumulative staggered delays for natural rhythm; if false, independent random delays
             public bool EnableLootDrops { get; set; } = false; // if true, drop loot items when fireworks explode
@@ -188,30 +190,13 @@ namespace Oxide.Plugins
             {
                 try
                 {
-                    // Check if we should skip due to no players
-                    if (config.OnlyWhenPlayersOnline)
+                    if (config.MinimumPlayersToSpawn > 0 && BasePlayer.activePlayerList.Count < config.MinimumPlayersToSpawn)
                     {
-                        if (BasePlayer.activePlayerList == null || BasePlayer.activePlayerList.Count == 0)
-                        {
-                            // no players and we're configured to skip
-                            Puts("rFireworkShow: no players online, skipping automatic show.");
-                        }
-                        else
-                        {
-                            // Roll dice for automatic show spawn
-                            if (RollDiceWithChance(config.AutomaticShowsDiceRollChancePercent))
-                            {
-                                SpawnRandomShowWithRange(config.AutomaticShowsFireworksMin, config.AutomaticShowsFireworksMax, "AutomaticShow");
-                            }
-                        }
+                        Puts($"rFireworkShow: not enough players online ({BasePlayer.activePlayerList.Count}/{config.MinimumPlayersToSpawn}), skipping automatic show.");
                     }
-                    else
+                    else if (RollDiceWithChance(config.AutomaticShowsDiceRollChancePercent))
                     {
-                        // Roll dice for automatic show spawn
-                        if (RollDiceWithChance(config.AutomaticShowsDiceRollChancePercent))
-                        {
-                            SpawnRandomShowWithRange(config.AutomaticShowsFireworksMin, config.AutomaticShowsFireworksMax, "AutomaticShow");
-                        }
+                        SpawnRandomShowWithRange(config.AutomaticShowsFireworksMin, config.AutomaticShowsFireworksMax, "AutomaticShow");
                     }
                 }
                 catch (Exception ex)
@@ -241,7 +226,11 @@ namespace Oxide.Plugins
             }
 
             // We're in the time window, do dice roll
-            if (RollDice())
+            if (config.MinimumPlayersToSpawn > 0 && BasePlayer.activePlayerList.Count < config.MinimumPlayersToSpawn)
+            {
+                Puts($"rFireworkShow: not enough players online ({BasePlayer.activePlayerList.Count}/{config.MinimumPlayersToSpawn}), skipping time-based show.");
+            }
+            else if (RollDice())
             {
                 // Dice won! Spawn a show with time-based fireworks range
                 SpawnRandomShowWithRange(config.TimeBasedShowsFireworksMin, config.TimeBasedShowsFireworksMax, "TimeBasedShow");
