@@ -4,7 +4,7 @@
 
 Game: Rust Game Server
 Framework: Umod
-Version: 1.0.4
+Version: 1.0.6
 License: MIT
 
 Advanced firework show system plugin for Rust servers - Customizable
@@ -68,7 +68,7 @@ The plugin auto-generates a configuration file at
 oxide/config/rFireworksShow.json. Below is the complete default config:
 
 {
-  "OnlyWhenPlayersOnline": true,
+  "Minimum online players required to spawn a show (0 = disabled)": 0,
   "EnableMapMarkers": true,
   "EnableStaggeredFireMode": true,
   "EnableLootDrops": false,
@@ -105,8 +105,9 @@ oxide/config/rFireworksShow.json. Below is the complete default config:
 
 DISPLAY & EFFECT SETTINGS
 --------------------------
-OnlyWhenPlayersOnline (true)
-  Only run automatic shows when at least one player is online
+Minimum online players required to spawn a show (0 = disabled) (0)
+  Skip shows if online player count is below this threshold; 0 disables the
+  check (applies to both automatic and time-based schedulers)
 
 EnableMapMarkers (true)
   Display green map markers at firework show locations
@@ -290,8 +291,8 @@ AUTOMATIC SHOWS
 ---------------
 When AutomaticShowsEnabled is enabled:
 
-1. Check Players - Respects OnlyWhenPlayersOnline setting (waits if no
-   players)
+1. Check Players - If minimum player threshold is > 0, skips show when
+   online count is below the configured value
 2. Wait Interval - Pauses for AutomaticShowsIntervalMinSeconds to
    AutomaticShowsIntervalMaxSeconds (randomized)
 3. Roll Dice - Rolls dice with AutomaticShowsDiceRollChancePercent chance

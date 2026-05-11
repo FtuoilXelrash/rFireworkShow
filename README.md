@@ -2,7 +2,7 @@
 
 [![Game](https://img.shields.io/badge/Game-Rust_Server-orange.svg)](https://rust.facepunch.com/)
 [![Framework](https://img.shields.io/badge/Framework-Umod-blue.svg)](https://umod.org/)
-[![Version](https://img.shields.io/badge/Version-1.0.4-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
+[![Version](https://img.shields.io/badge/Version-1.0.6-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Advanced firework show system plugin for Rust game servers - Customizable scheduling, loot drops, and intelligent spawn placement.**
@@ -53,7 +53,7 @@ The plugin auto-generates a configuration file at `oxide/config/rFireworksShow.j
 
 ```json
 {
-  "OnlyWhenPlayersOnline": true,
+  "Minimum online players required to spawn a show (0 = disabled)": 0,
   "EnableMapMarkers": true,
   "EnableStaggeredFireMode": true,
   "EnableLootDrops": false,
@@ -92,7 +92,7 @@ The plugin auto-generates a configuration file at `oxide/config/rFireworksShow.j
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `OnlyWhenPlayersOnline` | true | Only run automatic shows when at least one player is online |
+| `Minimum online players required to spawn a show (0 = disabled)` | 0 | Skip shows if online player count is below this threshold; 0 disables the check (applies to both schedulers) |
 | `EnableMapMarkers` | true | Display green map markers at firework show locations |
 | `EnableStaggeredFireMode` | true | Cumulative staggered delays (natural) vs independent random delays (chaotic) |
 | `EnableLootDrops` | false | Drop loot items when fireworks explode |
@@ -231,7 +231,7 @@ When `TimeBasedShowsEnabled` is enabled:
 
 When `AutomaticShowsEnabled` is enabled:
 
-1. **Check Players** - Respects `OnlyWhenPlayersOnline` setting (waits if no players)
+1. **Check Players** - If `Minimum online players required to spawn a show` is > 0, skips if online count is below threshold
 2. **Wait Interval** - Pauses for `AutomaticShowsIntervalMinSeconds` to `AutomaticShowsIntervalMaxSeconds` (randomized)
 3. **Roll Dice** - Rolls dice with `AutomaticShowsDiceRollChancePercent` chance
 4. **Spawn Show** - If dice succeeds, spawns show at configured location type
