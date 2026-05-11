@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("rFireworkShow", "Ftuoil Xelrash", "1.0.4")] // <-- change version string as you like
+    [Info("Firework Show", "Ftuoil Xelrash", "1.0.5")]
     [Description("Spawns randomized firework effects at randomized locations (near players or anywhere). Configurable and admin-triggerable.")]
     public class rFireworkShow : RustPlugin
     {
