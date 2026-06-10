@@ -7,7 +7,7 @@ Framework: Umod
 Version: 1.0.6
 License: MIT
 
-Advanced firework show system plugin for Rust servers - Customizable
+Advanced fireworks show system plugin for Rust servers - Customizable
 scheduling, loot drops, and intelligent spawn placement.
 
 ================================================================================
