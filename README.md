@@ -5,7 +5,7 @@
 [![Version](https://img.shields.io/badge/Version-1.0.6-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Advanced firework show system plugin for Rust game servers - Customizable scheduling, loot drops, and intelligent spawn placement.**
+**Advanced fireworks show system plugin for Rust game servers - Customizable scheduling, loot drops, and intelligent spawn placement.**
 
 ---
 
