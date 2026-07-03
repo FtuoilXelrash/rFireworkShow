@@ -2,7 +2,7 @@
 
 [![Game](https://img.shields.io/badge/Game-Rust_Server-orange.svg)](https://rust.facepunch.com/)
 [![Framework](https://img.shields.io/badge/Framework-Umod-blue.svg)](https://umod.org/)
-[![Version](https://img.shields.io/badge/Version-1.0.6-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
+[![Version](https://img.shields.io/badge/Version-1.0.7-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Advanced fireworks show system plugin for Rust game servers - Customizable scheduling, loot drops, and intelligent spawn placement.**

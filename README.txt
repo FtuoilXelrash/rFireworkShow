@@ -4,7 +4,7 @@
 
 Game: Rust Game Server
 Framework: Umod
-Version: 1.0.6
+Version: 1.0.7
 License: MIT
 
 Advanced fireworks show system plugin for Rust servers - Customizable

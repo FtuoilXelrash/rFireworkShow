@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("Firework Show", "Ftuoil Xelrash", "1.0.6")]
+    [Info("Firework Show", "Ftuoil Xelrash", "1.0.7")]
     [Description("Spawns randomized firework effects at randomized locations (near players or anywhere). Configurable and admin-triggerable.")]
     public class rFireworkShow : RustPlugin
     {
@@ -704,7 +704,7 @@ namespace Oxide.Plugins
                                 firework.enableSaving = false;
                                 firework.Spawn();
                                 // Fire the firework
-                                firework.ClientRPC(null, "RPCFire");
+                                firework.ClientRPC(RpcTarget.NetworkGroup("RPCFire"));
                                 // Clean up after firing
                                 firework.Kill();
 
@@ -789,7 +789,7 @@ namespace Oxide.Plugins
                                 firework.enableSaving = false;
                                 firework.Spawn();
                                 // Fire the firework
-                                firework.ClientRPC(null, "RPCFire");
+                                firework.ClientRPC(RpcTarget.NetworkGroup("RPCFire"));
                                 // Clean up after firing
                                 firework.Kill();
 
