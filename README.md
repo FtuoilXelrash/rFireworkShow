@@ -2,7 +2,7 @@
 
 [![Game](https://img.shields.io/badge/Game-Rust_Server-orange.svg)](https://rust.facepunch.com/)
 [![Framework](https://img.shields.io/badge/Framework-Umod-blue.svg)](https://umod.org/)
-[![Version](https://img.shields.io/badge/Version-1.0.7-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
+[![Version](https://img.shields.io/badge/Version-1.0.8-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Advanced fireworks show system plugin for Rust game servers - Customizable scheduling, loot drops, and intelligent spawn placement.**
@@ -13,7 +13,7 @@
 
 ### 🎯 Core Functionality
 - **🌙 Two Independent Schedulers** - Time-based shows (specific hours) + Automatic shows (fixed intervals)
-- **🎨 Random Colors** - Each firework randomly selects from 5 vibrant colors (Champagne, Green, Blue, Violet, Red)
+- **🎨 Random Colors** - Each firework randomly selects from 6 vibrant colors (Champagne, Green, Blue, Violet, Red, Orange)
 - **📍 Smart Spawn Placement** - Spawn near players, at monuments, or fully random map locations
 - **🗺️ Monument Support** - 29 whitelisted safe, above-ground monuments (airfield, harbor, radtown, etc.)
 - **⚙️ Flexible Positioning** - Manual player location, specific coordinates, or automatic placement
@@ -141,6 +141,7 @@ The plugin randomly selects one color per firework from:
 | 🟦 Blue | `mortarblue.prefab` |
 | 🟪 Violet | `mortarviolet.prefab` |
 | 🟥 Red | `mortarred.prefab` |
+| 🟧 Orange | `mortarorange.prefab` |
 
 ---
 
@@ -369,7 +370,7 @@ The plugin correctly handles overnight time windows (e.g., 19:50-7:50 spans acro
 
 ## 📝 Notes
 
-- **Colors**: Each firework independently selects a random color from the 5 available options
+- **Colors**: Each firework independently selects a random color from the 6 available options
 - **Map Markers**: Green circular markers (0.5 unit radius) appear on player maps during shows and automatically disappear after completion
 - **Water Safety**: The land detection uses `WaterLevel.Test()` method from Rust's built-in APIs - not invasive, just height checks
 - **Monument Data**: Uses `TerrainMeta.Path.Monuments` for dynamic caching - works on vanilla AND custom maps with no external dependencies

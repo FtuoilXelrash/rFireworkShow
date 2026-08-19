@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("Firework Show", "Ftuoil Xelrash", "1.0.7")]
+    [Info("Firework Show", "Ftuoil Xelrash", "1.0.8")]
     [Description("Spawns randomized firework effects at randomized locations (near players or anywhere). Configurable and admin-triggerable.")]
     public class rFireworkShow : RustPlugin
     {
@@ -117,6 +117,7 @@ namespace Oxide.Plugins
             "assets/prefabs/deployable/fireworks/mortarblue.prefab",
             "assets/prefabs/deployable/fireworks/mortarviolet.prefab",
             "assets/prefabs/deployable/fireworks/mortarred.prefab",
+            "assets/prefabs/deployable/fireworks/mortarorange.prefab",
         };
 
         private List<MonumentInfo> cachedMonuments = new List<MonumentInfo>();

@@ -4,7 +4,7 @@
 
 Game: Rust Game Server
 Framework: Umod
-Version: 1.0.7
+Version: 1.0.8
 License: MIT
 
 Advanced fireworks show system plugin for Rust servers - Customizable
@@ -18,8 +18,8 @@ CORE FUNCTIONALITY
 ------------------
 - Two Independent Schedulers: Time-based shows (specific hours) + Automatic
   shows (fixed intervals)
-- Random Colors: Each firework randomly selects from 5 vibrant colors
-  (Champagne, Green, Blue, Violet, Red)
+- Random Colors: Each firework randomly selects from 6 vibrant colors
+  (Champagne, Green, Blue, Violet, Red, Orange)
 - Smart Spawn Placement: Spawn near players, at monuments, or fully random map
   locations
 - Monument Support: 29 whitelisted safe, above-ground monuments (airfield,
@@ -205,6 +205,7 @@ Green       mortargreen.prefab
 Blue        mortarblue.prefab
 Violet      mortarviolet.prefab
 Red         mortarred.prefab
+Orange      mortarorange.prefab
 
 ================================================================================
                             COMMANDS
@@ -447,7 +448,7 @@ The plugin correctly handles overnight time windows
                             NOTES
 ================================================================================
 
-Colors: Each firework independently selects a random color from the 5
+Colors: Each firework independently selects a random color from the 6
 available options
 
 Map Markers: Green circular markers (0.5 unit radius) appear on player maps
