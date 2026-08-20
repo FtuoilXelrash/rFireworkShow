@@ -4,7 +4,7 @@
 
 Game: Rust Game Server
 Framework: Umod
-Version: 1.0.8
+Version: 1.0.9
 License: MIT
 
 Advanced fireworks show system plugin for Rust servers - Customizable
@@ -392,17 +392,16 @@ Independent Mode:
 
 MONUMENT SPAWNING
 -----------------
-Whitelisted Safe Monuments (29 total):
+Whitelisted Safe Monuments (30 total):
 
-Large: airfield_1, excavator_1, launch_site_1, military_tunnel_1,
-       powerplant_1, trainyard_1, water_treatment_plant_1
+Large: airfield_1, excavator_1, launch_site_1, powerplant_1,
+       water_treatment_plant_1
 
-Medium: bandit_town, compound, junkyard_1, nuclear_missile_silo,
+Medium: apartments_complex_1, bandit_town, compound, junkyard_1,
         radtown_small_3
 
 Small: fishing_village_a/b/c, gas_station_1, harbor_1/2, lighthouse,
-       mining_quarry_a/b/c, oilrig_1/2, satellite_dish, sphere_tank,
-       stables_a/b, supermarket_1, warehouse
+       oilrig_1/2, satellite_dish, stables_a/b, supermarket_1, warehouse
 
 Special: arctic_research_base_a, desert_military_base_a/b/c/d,
          ferry_terminal_1

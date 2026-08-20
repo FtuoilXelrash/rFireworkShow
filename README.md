@@ -2,7 +2,7 @@
 
 [![Game](https://img.shields.io/badge/Game-Rust_Server-orange.svg)](https://rust.facepunch.com/)
 [![Framework](https://img.shields.io/badge/Framework-Umod-blue.svg)](https://umod.org/)
-[![Version](https://img.shields.io/badge/Version-1.0.8-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
+[![Version](https://img.shields.io/badge/Version-1.0.9-green.svg)](https://github.com/FtuoilXelrash/rFireworksShow)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Advanced fireworks show system plugin for Rust game servers - Customizable scheduling, loot drops, and intelligent spawn placement.**
@@ -329,10 +329,10 @@ TimeBasedShow[19.50]: Monument(Harbor) - Grid(M8) with 12 fireworks.
 
 ### 🗺️ Monument Spawning
 
-**Whitelisted Safe Monuments (29 total):**
-- Large: airfield_1, excavator_1, launch_site_1, military_tunnel_1, powerplant_1, trainyard_1, water_treatment_plant_1
-- Medium: bandit_town, compound, junkyard_1, nuclear_missile_silo, radtown_small_3
-- Small: fishing_village_a/b/c, gas_station_1, harbor_1/2, lighthouse, mining_quarry_a/b/c, oilrig_1/2, satellite_dish, sphere_tank, stables_a/b, supermarket_1, warehouse
+**Whitelisted Safe Monuments (30 total):**
+- Large: airfield_1, excavator_1, launch_site_1, powerplant_1, water_treatment_plant_1
+- Medium: apartments_complex_1, bandit_town, compound, junkyard_1, radtown_small_3
+- Small: fishing_village_a/b/c, gas_station_1, harbor_1/2, lighthouse, oilrig_1/2, satellite_dish, stables_a/b, supermarket_1, warehouse
 - Special: arctic_research_base_a, desert_military_base_a/b/c/d, ferry_terminal_1
 
 **Note:** These monuments were selected to prevent underground spawns (excludes caves, bunkers, power substations, etc.)

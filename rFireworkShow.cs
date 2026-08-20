@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("Firework Show", "Ftuoil Xelrash", "1.0.8")]
+    [Info("Firework Show", "Ftuoil Xelrash", "1.0.9")]
     [Description("Spawns randomized firework effects at randomized locations (near players or anywhere). Configurable and admin-triggerable.")]
     public class rFireworkShow : RustPlugin
     {
@@ -482,6 +482,7 @@ namespace Oxide.Plugins
             HashSet<string> allowedMonuments = new HashSet<string>
             {
                 "airfield_1",
+                "apartments_complex_1",
                 "arctic_research_base_a",
                 "bandit_town",
                 "compound",
