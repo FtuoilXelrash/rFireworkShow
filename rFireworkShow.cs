@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("Firework Show", "Ftuoil Xelrash", "1.0.9")]
+    [Info("Firework Show", "Ftuoil Xelrash", "1.0.10")]
     [Description("Spawns randomized firework effects at randomized locations (near players or anywhere). Configurable and admin-triggerable.")]
     public class rFireworkShow : RustPlugin
     {
@@ -118,6 +118,10 @@ namespace Oxide.Plugins
             "assets/prefabs/deployable/fireworks/mortarviolet.prefab",
             "assets/prefabs/deployable/fireworks/mortarred.prefab",
             "assets/prefabs/deployable/fireworks/mortarorange.prefab",
+            // White "Boomer", added in the Sept 2026 "Breach and Clear" update. The player-facing
+            // item was renamed to "boomer" but the fired entity kept the old "mortar{color}" naming,
+            // same as the six above. Prefab path confirmed via live testing 2026-09-05.
+            "assets/prefabs/deployable/fireworks/mortarwhite.prefab",
         };
 
         private List<MonumentInfo> cachedMonuments = new List<MonumentInfo>();
